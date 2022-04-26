@@ -8,6 +8,7 @@ import { FormulariosModule } from './formularios/formularios.module';
 import { ProfessoresModule } from './professores/professores.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

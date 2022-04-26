@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControlName } from '@angular/forms';
 
+
 @Component({
   selector: 'app-mostrar-mensagem',
   templateUrl: './mostrar-mensagem.component.html',
@@ -13,6 +14,9 @@ export class MostrarMensagemComponent implements OnInit {
 
   @Input()
   mensagem: string = 'Erro ao preencher campo';
+
+  @Input()
+  debug : boolean = false;
 
   constructor() { }
 

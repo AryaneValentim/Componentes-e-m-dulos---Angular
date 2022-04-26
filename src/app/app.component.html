@@ -1,5 +1,5 @@
-<div class="container">
-  <ul class="nav nav-pills nav-fill justify-content-center">
+<div class="container ">
+  <ul class="nav nav-pills nav-fill justify-content-center py-3">
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/']"
         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
@@ -13,8 +13,9 @@
       <a class="nav-link" [routerLink]="['/formularios/reativo-form']"
       routerLinkActive="active" >Formulários</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link disabled">Disabled</a>
+     <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/professores-gp']"
+      routerLinkActive="active" >Professores Grande Porte</a>
     </li>
   </ul>
   <router-outlet></router-outlet>

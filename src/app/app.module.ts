@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormulariosModule } from './formularios/formularios.module';
 import { ProfessoresModule } from './professores/professores.module';
+import { ProfGpFormComponent } from './professores-gp/prof-gp-form/prof-gp-form.component';
+import { ProfessoresGpModule } from './professores-gp/professores-gp.module';
 
 
 
@@ -19,7 +21,8 @@ import { ProfessoresModule } from './professores/professores.module';
     AppRoutingModule,
     FormsModule,
     ProfessoresModule,
-    FormulariosModule
+    FormulariosModule,
+    ProfessoresGpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

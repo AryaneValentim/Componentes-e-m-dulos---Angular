@@ -15,9 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     MostrarMensagemComponent,
-
-
-
     ReactiveFormsModule
   ]
 })

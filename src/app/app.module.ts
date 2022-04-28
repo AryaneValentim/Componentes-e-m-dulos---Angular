@@ -22,7 +22,8 @@ import { ProfessoresGpModule } from './professores-gp/professores-gp.module';
     FormsModule,
     ProfessoresModule,
     FormulariosModule,
-    ProfessoresGpModule
+    ProfessoresGpModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

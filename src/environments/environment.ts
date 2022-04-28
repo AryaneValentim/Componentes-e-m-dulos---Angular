@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_url : 'http://localhost:8080'
+};
+
+export const grandeporte = {
+  production: false,
+  api_url : 'http://cursos.grandeporte.com.br:8080'
 };
 
 /*

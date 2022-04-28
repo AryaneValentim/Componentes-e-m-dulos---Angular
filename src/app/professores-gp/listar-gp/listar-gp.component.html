@@ -13,6 +13,16 @@
         <td> {{ p.id }} </td>
         <td> {{ p.nome }} </td>
         <td> {{ p.email }} </td>
+
+        <td>
+          <button class="btn btn-outline-info"
+          [routerLink]="['/professores-gp/editar', p.id]">
+            Editar</button>
+          <button class="btn btn-outline-danger mx-1 my-1"
+          (click)="onDelete(p.id!)">
+            Deletar</button>
+        </td>
+
     </tr>
 
 </table>

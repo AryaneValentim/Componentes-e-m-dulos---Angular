@@ -35,7 +35,6 @@ export class ProfessorFormComponent implements OnInit {
       numero : [ null, [ Validators.required ] ],
       cep : [ null, [ Validators.required ] ]
     });
-
     // pegar parâmetros das rotas
 
     this.activatedRoute.params
@@ -46,22 +45,25 @@ export class ProfessorFormComponent implements OnInit {
           // é EDIÇÃO
           if (parametros.id){
             console.log(`edição id ${parametros.id}`);
-            //preciso consultar a api para buscar todas as informações do id a ser editado
+
+            this.isEdicao = true;
+            this.id = parametros.id;
+
+            // PRECISO consultar a API para buscar todas as informações do ID a ser editado
+
             this.professoresService.getOne(parametros.id)
               .subscribe(
-                (dadosProfessores) =>{
+                (dadosProfessores) => {
                   console.log(dadosProfessores);
-                  //patchValue atualiza os campos dos formulario
+                  // patchValue atualiza os campos do formulário de acordo com o nome dos controles
                   this.meuForm.patchValue(dadosProfessores);
                 }
-              )
-
+              );
           }
           // é CRIAÇÃO
           else {
             console.log(`criação`);
-            this.isEdicao = true;
-            this.id = parametros.id;
+            this.isEdicao = false;
           }
         }
       );

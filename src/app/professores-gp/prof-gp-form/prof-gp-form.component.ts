@@ -55,23 +55,29 @@ export class ProfGpFormComponent implements OnInit {
   }
   // 4-) integrar os controles do form no HTML
   onSubmit(){
-    if(this.isEdicao == false){
-      //console.log(this.meuForm.value);
+    //console.log(this.meuForm.value);
+
+    // edicao igual a false significa que é criação
+    if (this.isEdicao == false){
       this.professoresGpService.save(this.meuForm.value)
       .subscribe(
         (data) => {
           console.log(data);
+          // o navigate é para redirecionar para uma outra rota de interesse
           this.router.navigate(['/professores-gp']);
         }
+      );
+    } else{
+      //é alteração de algum registro
+      this.professoresGpService.update(this.id, this.meuForm.value)
+        .subscribe(
+          (data) => {
+            console.log(data);
+            // o navigate é para redirecionar para uma outra rota de interesse
+            this.router.navigate(['/professores-gp']);
+          }
         );
-      } else {
-        this.professoresGpService.update(this.id, this.meuForm.value)
-          .subscribe(
-            (data) => {
-              console.log(data);
-              this.router.navigate(['/professores-gp']);
-            }
-          )
-      }
+    }
+
   }
 }

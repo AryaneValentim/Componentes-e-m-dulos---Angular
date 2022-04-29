@@ -35,7 +35,7 @@ export class ListarComponent implements OnInit {
       }
     );
   }
-  
+
   onDelete(id: number){
     this.professoresService.delete(id)
       .subscribe(

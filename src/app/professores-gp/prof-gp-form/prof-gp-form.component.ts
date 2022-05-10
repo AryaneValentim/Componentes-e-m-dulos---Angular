@@ -26,37 +26,43 @@ export class ProfGpFormComponent implements OnInit {
   ngOnInit(): void {
     this.meuForm = this.formBuilder.group({
       nome : [ null, [ Validators.required ] ],
-      email : [ null, [ Validators.required ] ]
+      email : [ null, [ Validators.required, Validators.email ] ]
     });
 
     this.activatedRoute.params
-      .subscribe(
-        (parametros: any) => {
-          console.log(parametros);
+    .subscribe(
+      (parametros: any) => {
+        console.log(parametros);
 
-          if (parametros.id){
-            console.log(`Edição id ${parametros.id}`);
-            this.professoresGpService.getOne(parametros.id)
-              .subscribe (
-                (dadosProfessoresGp) => {
-                  console.log(dadosProfessoresGp);
-                  this.meuForm.patchValue(dadosProfessoresGp);
-                }
-              )
-          } else {
-            console.log(`criação`);
-            this.isEdicao = true;
-            this.id = parametros.id;
-          }
+        // é EDIÇÃO
+        if (parametros.id){
+          console.log(`Edição id ${parametros.id}`);
 
+          this.isEdicao = true;
+          this.id = parametros.id;
+
+          // PRECISO consultar a API para buscar todas as informações do ID a ser editado
+
+          this.professoresGpService.getOne(parametros.id)
+            .subscribe(
+              (dadosProfessoresGp) => {
+                console.log(dadosProfessoresGp);
+                // patchValue atualiza os campos do formulário de acordo com o nome dos controles
+                this.meuForm.patchValue(dadosProfessoresGp);
+              }
+            );
         }
-
-      )
-  }
+        // é CRIAÇÃO
+        else {
+          console.log(`criação`);
+          this.isEdicao = false;
+        }
+      }
+    );
+}
   // 4-) integrar os controles do form no HTML
-  onSubmit(){
+  Salvar(){
     //console.log(this.meuForm.value);
-
     // edicao igual a false significa que é criação
     if (this.isEdicao == false){
       this.professoresGpService.save(this.meuForm.value)

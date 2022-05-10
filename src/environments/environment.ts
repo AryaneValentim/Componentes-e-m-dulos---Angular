@@ -9,7 +9,7 @@ export const environment = {
 
 export const grandeporte = {
   production: false,
-  api_url : 'http://cursos.grandeporte.com.br:8080'
+  grande_url : 'http://cursos.grandeporte.com.br:8080'
 };
 
 /*
